@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kVe-PW-gFr">
+                                <rect key="frame" x="20" y="44" width="374" height="27.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HKd-r5-F2D">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="27.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deck: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuw-KR-TKE">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="27.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EV-ih-J4C">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="27.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="y2q-5p-skG">
+                                <rect key="frame" x="16" y="824" width="382" height="38"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="61p-cg-6FT">
+                                        <rect key="frame" x="49.5" y="0.0" width="283" height="38"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE6-Ze-15p">
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="38"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="New game"/>
+                                                <connections>
+                                                    <action selector="newGameTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JOX-Tb-9TX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVF-xD-8Pi">
+                                                <rect key="frame" x="118" y="0.0" width="165" height="38"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title="Deal 3 more cards"/>
+                                                <connections>
+                                                    <action selector="moreCardsTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7qw-rI-Tq5"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="nbv-eE-7fz" customClass="CardsGridView" customModule="Set" customModuleProvider="target">
+                                <rect key="frame" x="20" y="81.5" width="374" height="717"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="d8E-aZ-OFR" appends="YES" id="fDS-qc-w2o"/>
+                                    <outletCollection property="gestureRecognizers" destination="5ZV-oW-y1r" appends="YES" id="mLb-dH-nhy"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kVe-PW-gFr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6Y2-wz-Jik"/>
+                            <constraint firstItem="nbv-eE-7fz" firstAttribute="firstBaseline" secondItem="kVe-PW-gFr" secondAttribute="baseline" constant="15.5" symbolType="layoutAnchor" id="7Hq-il-1Tg"/>
+                            <constraint firstItem="kVe-PW-gFr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BOI-5l-8PQ"/>
+                            <constraint firstItem="nbv-eE-7fz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Oxx-gg-298"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nbv-eE-7fz" secondAttribute="trailing" constant="20" id="RDk-gc-9uw"/>
+                            <constraint firstItem="y2q-5p-skG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="a1F-eS-AaB"/>
+                            <constraint firstItem="y2q-5p-skG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="b0W-WP-Go3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="y2q-5p-skG" secondAttribute="bottom" id="fcr-Iy-lRM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kVe-PW-gFr" secondAttribute="trailing" constant="20" id="gu5-nl-o5A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y2q-5p-skG" secondAttribute="trailing" constant="16" id="iuN-vi-Qfd"/>
+                            <constraint firstItem="nbv-eE-7fz" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="wPQ-Aa-in7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardsDeckView" destination="nbv-eE-7fz" id="rJV-do-zpM"/>
+                        <outlet property="deckCountLabel" destination="kuw-KR-TKE" id="JYn-i4-hTM"/>
+                        <outlet property="moreCardsButton" destination="HVF-xD-8Pi" id="LqH-ww-HJb"/>
+                        <outlet property="scoreLabel" destination="8EV-ih-J4C" id="zlD-ev-Irj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" numberOfTouchesRequired="2" id="d8E-aZ-OFR">
+                    <connections>
+                        <action selector="dealMoreCardsSwipe:" destination="BYZ-38-t0r" id="FYG-ZF-bvv"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <rotationGestureRecognizer rotation="45" id="5ZV-oW-y1r">
+                    <connections>
+                        <action selector="shuffleTheCards:" destination="BYZ-38-t0r" id="fWF-16-vdu"/>
+                    </connections>
+                </rotationGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+    </scenes>
+</document>
