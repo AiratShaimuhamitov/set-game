@@ -22,9 +22,14 @@ class ViewController: UIViewController {
         updateViewFromModel()
     }
     
-    @IBAction private func shuffleTheCards(_ sender: Any) {
-        game.shuffleThePlayingCards()
-        updateViewFromModel()
+    @IBAction private func shuffleTheCards(_ sender: UIRotationGestureRecognizer) {
+        switch sender.state {
+        case .ended:
+            game.shuffleThePlayingCards()
+            updateViewFromModel()
+        default:
+            break
+        }
     }
     
     @IBOutlet private weak var moreCardsButton: UIButton!
@@ -83,7 +88,7 @@ class ViewController: UIViewController {
         }
         
         let cardView: CardView = CardView(shape: shape, shading: shading, color: color, number: number)
-        cardView.layer.cornerRadius = 6.0
+        cardView.layer.cornerRadius = 8.0
         
         cardView.layer.borderColor = UIColor.gray.cgColor
         cardView.layer.borderWidth = 1.0
@@ -104,7 +109,7 @@ class ViewController: UIViewController {
         let touch = UITapGestureRecognizer(target: self, action: #selector(touchCard))
         cardView.addGestureRecognizer(touch)
         
-        cardView.backgroundColor = .white
+        cardView.backgroundColor = .systemBackground
         return cardView
     }
 }

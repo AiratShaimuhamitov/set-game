@@ -36,8 +36,8 @@ class CardView: UIView {
         case .one:
             rectsToDraw.append(CGRect(x: rect.origin.x, y: rect.origin.y + rect.height / 3, width: rect.width, height: rect.height / 3))
         case .two:
-            rectsToDraw.append(CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.width, height: rect.height / 2))
-            rectsToDraw.append(CGRect(x: rect.origin.x, y: rect.origin.y + rect.height / 2, width: rect.width, height: rect.height / 2))
+            rectsToDraw.append(CGRect(x: rect.origin.x, y: rect.origin.y + rect.height / 6.0, width: rect.width, height: rect.height / 3))
+            rectsToDraw.append(CGRect(x: rect.origin.x, y: rect.origin.y + 3 * rect.height / 6.0, width: rect.width, height: rect.height / 3))
         case .three:
             rectsToDraw.append(CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.width, height: rect.height / 3))
             rectsToDraw.append(CGRect(x: rect.origin.x, y: rect.origin.y + rect.height / 3, width: rect.width, height: rect.height / 3))

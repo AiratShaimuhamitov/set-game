@@ -31,7 +31,7 @@ class CardsGridView: UIView {
             
             cardsGrid = Grid(layout: .fixedCellSize(CGSize(width: width, height: height)), frame: self.bounds)
             cellCount = cardsGrid!.cellCount
-            offest += 0.1
+            offest += 0.02
         }
         
         for cardView in cardViews {
