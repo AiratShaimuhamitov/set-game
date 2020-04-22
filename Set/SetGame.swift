@@ -9,13 +9,13 @@
 import Foundation
 
 public class SetGame {
-    private var deck = [Card]()
+    private var deck = [SetCard]()
     var deckCount: Int { deck.count }
     
-    private(set) var selectedCards = [Card]()
-    private(set) var playingCards = [Card]()
-    private(set) var matchedCards = [Card]()
-    var unmatchedCards: [Card] {
+    private(set) var selectedCards = [SetCard]()
+    private(set) var playingCards = [SetCard]()
+    private(set) var matchedCards = [SetCard]()
+    var unmatchedCards: [SetCard] {
         return selectedCards.count == setCardsCount ? selectedCards.filter {!matchedCards.contains($0)} : []
     }
     
@@ -37,7 +37,7 @@ public class SetGame {
             for color in 0..<attributesCount {
                 for shape in 0..<attributesCount {
                     for shading in 0..<attributesCount {
-                        let card = Card(number: color, color: number, shape: shape, shading: shading)
+                        let card = SetCard(number: color, color: number, shape: shape, shading: shading)
                         self.deck.append(card)
                     }
                 }
@@ -104,7 +104,7 @@ public class SetGame {
         }
     }
     
-    private func validate(set cards: [Card]) -> Bool {
+    private func validate(set cards: [SetCard]) -> Bool {
         for attributeIndex in 0...attributesCount {
             let specificAttributes = cards.map { $0.attributes[attributeIndex] }
 

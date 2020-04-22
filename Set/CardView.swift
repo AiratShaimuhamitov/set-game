@@ -11,10 +11,12 @@ import UIKit
 @IBDesignable
 class CardView: UIView {
     
-    var color: Color = .purple
-    var number: Number = .three
-    var shading: Shading = .empty
-    var shape: Shape = .squiggle
+    private var color: Color = .purple
+    private var number: Number = .three
+    private var shading: Shading = .empty
+    private var shape: Shape = .squiggle
+    
+    var isFaceDown = true { didSet { setNeedsDisplay() } }
     
     init(shape: Shape, shading: Shading, color: Color, number: Number) {
         self.shape = shape
@@ -28,7 +30,22 @@ class CardView: UIView {
         super.init(coder: coder)
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setNeedsDisplay()
+    }
+    
     override func draw(_ rect: CGRect) {
+        if isFaceDown {
+            drawFaceDown()
+            return
+        }
+        
         color.uiColor.setStroke()
         var rectsToDraw = [CGRect]()
         
@@ -49,6 +66,12 @@ class CardView: UIView {
             drawShape(in: rectToDraw, withPath: shapePath)
         }
         drawShading(in: rect, withPath: shapePath)
+    }
+    
+    private func drawFaceDown() {
+        UIColor.red.setFill()
+        let path = UIBezierPath(rect: self.bounds)
+        path.fill()
     }
     
     private func drawShape(in rect: CGRect, withPath path: UIBezierPath) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Card : Hashable {
+struct SetCard : Hashable {
     private var identifier: Int
     
     var attributes: [Int] {
@@ -28,7 +28,7 @@ struct Card : Hashable {
     }
     
     init(number: Int, color: Int, shape: Int, shading: Int) {
-        identifier = Card.getUniqueIdentifier()
+        identifier = SetCard.getUniqueIdentifier()
         
         self.number = number
         self.color = color
@@ -40,7 +40,7 @@ struct Card : Hashable {
         hasher.combine(identifier)
     }
     
-    static func == (lhs: Card, rhs: Card) -> Bool {
+    static func == (lhs: SetCard, rhs: SetCard) -> Bool {
         return lhs.identifier == rhs.identifier
     }
 }
